@@ -13,4 +13,14 @@ describe Task do
       expect(Task.not_done()).to(eq(not_done_tasks))
     end
   end
+
+  describe(".done") do
+    it("returns done tasks") do
+      task1 = Task.create({:description => "task1", :done=> true})
+      task2 = Task.create({:description => "task2", :done=> true})
+      done_tasks = [task1, task2]
+      not_done_task = Task.create({:description => "im done", :done=> false})
+      expect(Task.done).to eq(done_tasks)
+    end
+  end
 end
